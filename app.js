@@ -8,8 +8,6 @@ const connectDB = require('./config/db');
 
 connectDB();
 
-connectDB();
-
 const morgan = require("morgan");
 app.use(morgan("dev"));
 
