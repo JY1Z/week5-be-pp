@@ -46,10 +46,11 @@ const updateUser = async (req, res) => {
   const { userId } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(userId)) {
-    return res.status(400).json({ message: "Invalid user ID" });
+    return res.status(400).json({ message: "Invalid User ID" });
   }
 
   try {
+    // Here User findOneAndReplace to overwrite the data instead of update.
     const updatedUser = await User.findOneAndUpdate(
       { _id: userId },
       { ...req.body },
